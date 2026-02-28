@@ -1,203 +1,169 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shavkat Najmitdinov | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* CSS Dizayn */
-        :root {
-            --primary-color: #00d2ff;
-            --secondary-color: #3a7bd5;
-            --bg-dark: #0f0c29;
-            --text-white: #ffffff;
-        }
+<meta charset="UTF-8">
+<title>Architect Platform – All in One</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background: var(--bg-dark);
-            color: var(--text-white);
-            overflow-x: hidden;
-        }
-
-        /* Navigatsiya */
-        nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 80px;
-            background: rgba(15, 12, 41, 0.9);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 10%;
-            flex-wrap: wrap;
-            padding-top: 80px;
-        }
-
-        .hero-text {
-            flex: 1;
-            min-width: 300px;
-            animation: fadeInLeft 1.5s ease;
-        }
-
-        .hero-text h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-text span {
-            color: var(--primary-color);
-        }
-
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            min-width: 300px;
-            animation: fadeInRight 1.5s ease;
-        }
-
-        .img-box {
-            width: 350px;
-            height: 450px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 20px var(--primary-color);
-            transition: transform 0.5s;
-        }
-
-        .img-box:hover {
-            transform: scale(1.05);
-        }
-
-        .img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Ikonkalar Animatsiyasi */
-        .social-icons {
-            margin-top: 30px;
-        }
-
-        .social-icons i {
-            font-size: 2rem;
-            margin-right: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            color: var(--text-white);
-        }
-
-        .social-icons i:hover {
-            color: var(--primary-color);
-            transform: translateY(-10px) rotate(360deg);
-        }
-
-        /* Tugma */
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            box-shadow: 0 0 15px var(--primary-color);
-            transform: scale(1.1);
-        }
-
-        /* Animatsiyalar */
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(100px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero { text-align: center; }
-            .img-box { width: 280px; height: 350px; margin-top: 30px; }
-        }
-    </style>
+<style>
+/* ===== CSS ===== */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+h1{text-align:center;}
+input,select,button{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  font-size:16px;
+}
+button{
+  background:#00c896;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+}
+.cards{
+  margin-top:20px;
+}
+.card{
+  background:#1b1b1b;
+  padding:15px;
+  margin-bottom:10px;
+  border:1px solid #333;
+}
+#viewer{
+  margin-top:30px;
+  height:300px;
+  background:#000;
+  position:relative;
+}
+#hint{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:rgba(0,0,0,0.6);
+  padding:8px;
+  font-size:14px;
+}
+</style>
 </head>
+
 <body>
+<div class="container">
+<h1>🏠 Architect Platform</h1>
 
-    <nav>
-        <div class="logo">SHAW_PORTFOLIO</div>
-    </nav>
+<input id="budget" type="number" placeholder="Budget ($)">
+<input id="rooms" type="number" placeholder="Minimum rooms">
 
-    <section class="hero">
-        <div class="hero-text">
-            <h3>Assalomu alaykum!</h3>
-            <h1>Men <span>Najmitdinov Shavkat</span></h1>
-            <p>Full-Stack Dasturchi va Dizayner. Men zamonaviy va interaktiv veb-saytlar yarataman.</p>
-            
-            <div class="social-icons">
-                <i class="fab fa-telegram"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-github"></i>
-                <i class="fab fa-linkedin"></i>
-            </div>
+<button onclick="filterHouses()">Find Houses</button>
 
-            <a href="#" class="btn">Bog'lanish</a>
-        </div>
+<div class="cards" id="result"></div>
 
-        <div class="hero-image">
-            <div class="img-box">
-                <img src="3168.jpg" alt="Najmitdinov Shavkat">
-            </div>
-        </div>
-    </section>
+<h2>360° House View</h2>
+<div id="viewer">
+  <div id="hint">Drag to look around</div>
+</div>
+</div>
 
-    <script>
-        // Oddiy JavaScript animatsiya effekti
-        document.addEventListener('mousemove', (e) => {
-            const img = document.querySelector('.img-box');
-            let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            img.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
 
+<script>
+/* ===== JAVASCRIPT ===== */
+
+// ===== DATA (fake DB) =====
+const houses = [
+ {id:1,title:"Modern Alpha",price:80000,rooms:3,area:120},
+ {id:2,title:"Classic Beta",price:60000,rooms:2,area:90},
+ {id:3,title:"Luxury Gamma",price:120000,rooms:5,area:220},
+ {id:4,title:"Compact Delta",price:50000,rooms:2,area:75},
+];
+
+// ===== FILTER FUNCTION =====
+function filterHouses(){
+  const budget = Number(document.getElementById("budget").value);
+  const rooms  = Number(document.getElementById("rooms").value);
+  const box = document.getElementById("result");
+  box.innerHTML = "";
+
+  const filtered = houses.filter(h =>
+    (!budget || h.price <= budget) &&
+    (!rooms || h.rooms >= rooms)
+  );
+
+  if(filtered.length === 0){
+    box.innerHTML = "<p>No houses found</p>";
+    return;
+  }
+
+  filtered.forEach(h=>{
+    box.innerHTML += `
+      <div class="card">
+        <b>${h.title}</b><br>
+        Price: $${h.price}<br>
+        Rooms: ${h.rooms}<br>
+        Area: ${h.area} m²
+      </div>
+    `;
+  });
+}
+
+// ===== 360 VIEW =====
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(75, 900/300, 1, 1000);
+camera.position.set(0,0,0.1);
+
+let renderer = new THREE.WebGLRenderer();
+renderer.setSize(900,300);
+document.getElementById("viewer").appendChild(renderer.domElement);
+
+let geometry = new THREE.SphereGeometry(500,60,40);
+geometry.scale(-1,1,1);
+
+// demo texture (gradient)
+let canvas = document.createElement("canvas");
+canvas.width = canvas.height = 512;
+let ctx = canvas.getContext("2d");
+let grd = ctx.createLinearGradient(0,0,512,512);
+grd.addColorStop(0,"#444");
+grd.addColorStop(1,"#111");
+ctx.fillStyle = grd;
+ctx.fillRect(0,0,512,512);
+
+let texture = new THREE.CanvasTexture(canvas);
+let material = new THREE.MeshBasicMaterial({map:texture});
+let sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+let isDown=false, lon=0, lat=0;
+renderer.domElement.addEventListener("mousedown",()=>isDown=true);
+window.addEventListener("mouseup",()=>isDown=false);
+window.addEventListener("mousemove",e=>{
+  if(!isDown) return;
+  lon += e.movementX*0.1;
+  lat -= e.movementY*0.1;
+});
+
+function animate(){
+  requestAnimationFrame(animate);
+  lat = Math.max(-85,Math.min(85,lat));
+  let phi = THREE.MathUtils.degToRad(90-lat);
+  let theta = THREE.MathUtils.degToRad(lon);
+  camera.lookAt(
+    500*Math.sin(phi)*Math.cos(theta),
+    500*Math.cos(phi),
+    500*Math.sin(phi)*Math.sin(theta)
+  );
+  renderer.render(scene,camera);
+}
+animate();
+</script>
 </body>
 </html>
